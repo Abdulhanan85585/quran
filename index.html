@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quran Academy</title>
+</head>
+<body style="background-color: #0d231d; color: #f4ebd9; text-align: center; font-family: 'Segoe UI', sans-serif; padding: 20px; margin: 0;">
+
+    <h1 style="color: #dfb15b; font-size: 32px; margin-bottom: 5px;">🕌 Al-Noor Online Quran Academy</h1>
+    <p style="font-size: 16px; font-style: italic; color: #a3c6b2;">Learn Holy Quran with Tajweed from Professional Teachers</p>
+    
+    <hr style="border: 1px solid #dfb15b; width: 40%; margin: 15px auto;">
+
+    <div style="background-color: #133a2f; padding: 20px; border-radius: 10px; max-width: 450px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.3); text-align: left;">
+        <h3 style="color: #dfb15b; text-align: center; margin-top: 0;">Book Your Free 3-Days Trial</h3>
+        
+        <label style="color: #a3c6b2; font-weight: bold;">Student Name:</label><br>
+        <input type="text" id="studentName" placeholder="Enter Student Name" style="width: 95%; padding: 10px; margin: 8px 0 15px 0; border-radius: 5px; border: 1px solid #dfb15b; background-color: #0d231d; color: white;">
+        
+        <label style="color: #a3c6b2; font-weight: bold;">Age / Age Group:</label><br>
+        <input type="text" id="studentAge" placeholder="e.g. 10 Years, or Adult" style="width: 95%; padding: 10px; margin: 8px 0 15px 0; border-radius: 5px; border: 1px solid #dfb15b; background-color: #0d231d; color: white;">
+
+        <label style="color: #a3c6b2; font-weight: bold;">Select Course:</label><br>
+        <select id="courseSelect" style="width: 100%; padding: 10px; margin: 8px 0 20px 0; border-radius: 5px; border: 1px solid #dfb15b; background-color: #0d231d; color: white;">
+            <option value="Norani Qaida">Norani Qaida for Kids</option>
+            <option value="Quran Reading with Tajweed">Quran Reading with Tajweed</option>
+            <option value="Hifz-ul-Quran">Hifz-ul-Quran (Memorization)</option>
+            <option value="Islamic Studies">Islamic Studies & Duas</option>
+        </select>
+        
+        <button onclick="sendToWhatsApp()" style="width: 100%; padding: 12px; background-color: #25D366; color: white; border: none; font-weight: bold; font-size: 16px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            💬 Contact Teacher on WhatsApp
+        </button>
+    </div>
+
+    <p style="color: #a3c6b2; font-size: 14px;">Direct Contact: support@quranacademy.com</p>
+
+    <script>
+        function sendToWhatsApp() {
+            // 1. APNA WHATSAPP NUMBER YAHAN LIKHO (Bina '+' ya '00' ke, jaise: 923001234567)
+            var myPhoneNumber = "YOUR_NUMBER_HERE"; 
+            
+            // 2. Form se data uthana
++923116876314            var name = document.getElementById("studentName").value;
+            var age = document.getElementById("studentAge").value;
+            var course = document.getElementById("courseSelect").value;
+            
+            // Validation
+            if (name == "" || age == "") {
+                alert("Please fill your Name and Age first!");
+                return;
+            }
+            
+            // 3. WhatsApp ke liye message tayar karna
+            var message = "Assalamu Alaikum%, I want to join your Online Quran Academy.%0A" + 
+                          "*Student Name:* " + name + "%0A" +
+                          "*Age:* " + age + "%0A" +
+                          "*Selected Course:* " + course;
+            
+            // 4. WhatsApp ka official API link banana
+            var whatsappUrl = "https://api.whatsapp.com/send?phone=" + myPhoneNumber + "&text=" + message;
+            
+            // 5. Student ko direct WhatsApp par bhej dena
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
+
