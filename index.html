@@ -42,7 +42,7 @@
             var myPhoneNumber = "YOUR_NUMBER_HERE"; 
             
             // 2. Form se data uthana
-+923116876314            var name = document.getElementById("studentName").value;
+           var name = document.getElementById("studentName").value;
             var age = document.getElementById("studentAge").value;
             var course = document.getElementById("courseSelect").value;
             
@@ -59,7 +59,8 @@
                           "*Selected Course:* " + course;
             
             // 4. WhatsApp ka official API link banana
-            var whatsappUrl = "https://api.whatsapp.com/send?phone=" + myPhoneNumber + "&text=" + message;
+                    let whatsappUrl = "https://wa.me/923116876314?text=" + encodeURIComponent(message);
+            
             
             // 5. Student ko direct WhatsApp par bhej dena
             window.open(whatsappUrl, '_blank');
