@@ -49,48 +49,47 @@
         <div style="margin-top: 20px;">
     <p style="color: #a3c6b2; font-size: 14px;">Contact our coordinators:</p>
     
-    <a href="https://wa.me/923116876314" style="display: block; width: 100%; padding: 12px; background-color: #25d366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-bottom: 10px;">
-        📞 Coordinator 1
-    </a>
+    <button onclick="sendToWhatsApp('923116876314')" style="display: block; width: 100%; padding: 12px; background-color: #25d366; color: white; border: none; border-radius: 5px; font-weight: bold; margin-bottom: 10px; cursor: pointer;">
+    📞 Contact Coordinator 1
+</button>
 
-    <a href="https://wa.me/923159326197" style="display: block; width: 100%; padding: 12px; background-color: #25d366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
-        📞 Coordinator 2
-    </a>
-        </div>
+<button onclick="sendToWhatsApp('923159326197')" style="display: block; width: 100%; padding: 12px; background-color: #25d366; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+    📞 Contact Coordinator 2
+</button>
+            
         
 
     <p style="color: #a3c6b2; font-size: 14px;">Direct Contact: support@quranacademy.com</p>
 
     <script>
-        function sendToWhatsApp() {
-            // 1. APNA WHATSAPP NUMBER YAHAN LIKHO (Bina '+' ya '00' ke, jaise: 923001234567)
-            var myPhoneNumber = "YOUR_NUMBER_HERE"; 
-            
-            // 2. Form se data uthana
-           var name = document.getElementById("studentName").value;
-            var age = document.getElementById("studentAge").value;
-            var course = document.getElementById("courseSelect").value;
-            
-            // Validation
-            if (name == "" || age == "") {
-                alert("Please fill your Name and Age first!");
-                return;
-            }
-            
-            // 3. WhatsApp ke liye message tayar karna
-            var message = "Assalamu Alaikum%, I want to join your Online Quran Academy.%0A" + 
-                          "*Student Name:* " + name + "%0A" +
-                          "*Age:* " + age + "%0A" +
-                          "*Selected Course:* " + course;
-            
-            // 4. WhatsApp ka official API link banana
-                    let whatsappUrl = "https://wa.me/923116876314?text=" + encodeURIComponent(message);
-            
-            
-            // 5. Student ko direct WhatsApp par bhej dena
-            window.open(whatsappUrl, '_blank');
+    <script>
+function sendToWhatsApp(phoneNumber) {
+    // 2. Form se data uthana
+    var name = document.getElementById("studentName").value;
+    var age = document.getElementById("studentAge").value;
+    var course = document.getElementById("courseSelect").value;
 
-            }
+    // Validation
+    if (name == "" || age == "") {
+        alert("Please fill your Name and Age first!");
+        return;
+    }
+
+    // 3. WhatsApp ke liye message tayar karna
+    var message = "Assalamu Alaikum, I want to join your Online Quran Academy.%0A" +
+                  "Student Name: " + name + "%0A" +
+                  "Age: " + age + "%0A" +
+                  "Selected Course: " + course;
+
+    // 4. WhatsApp ka official API link banana
+    let whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+    // 5. Student ko direct WhatsApp par bhej dena
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+            
+        
 </script>
             <div style="margin-top: 40px; border-top: 2px solid #facc15; padding-top: 20px; font-family: sans-serif; text-align: center; color: white;">
             
