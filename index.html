@@ -62,38 +62,32 @@
     <p style="color: #a3c6b2; font-size: 14px;">Direct Contact: support@quranacademy.com</p>
 
     <script>
-    <script>
 function sendToWhatsApp(phoneNumber) {
-    // 2. Form se data uthana
+    // 1. Data uthana
     var name = document.getElementById("studentName").value;
     var age = document.getElementById("studentAge").value;
     var course = document.getElementById("courseSelect").value;
 
-    // Validation
-    if (name == "" || age == "") {
+    // 2. Check karna ke user ne data bhara ya nahi
+    if (name === "" || age === "") {
         alert("Please fill your Name and Age first!");
         return;
     }
 
-    // 3. WhatsApp ke liye message tayar karna
+    // 3. Message banana (Yahan %0A ka use sahi hai)
     var message = "Assalamu Alaikum, I want to join your Online Quran Academy.%0A" +
                   "Student Name: " + name + "%0A" +
                   "Age: " + age + "%0A" +
                   "Selected Course: " + course;
 
-    // 4. WhatsApp ka official API link banana
-    let whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    // 4. WhatsApp link banana (Yahan se fix hoga)
+    var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
 
-    // 5. Student ko direct WhatsApp par bhej dena
-    window.open(whatsappUrl, '_blank');
+    // 5. Link open karna
+    window.location.href = whatsappUrl; 
 }
-</script>
+    </script>
             
-        
-</script>
-            <div style="margin-top: 40px; border-top: 2px solid #facc15; padding-top: 20px; font-family: sans-serif; text-align: center; color: white;">
-            
-            <div style="background-color: #facc15; color: #052e16; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
                 🎁 3 Days Free Trial Classes! No Fee Upfront.
             </div>
 
