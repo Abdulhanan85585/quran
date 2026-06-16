@@ -78,7 +78,8 @@ function sendToWhatsApp(phoneNumber) {
     var name = document.getElementById("studentName").value;
     var age = document.getElementById("studentAge").value;
     var course = document.getElementById("courseSelect").value;
-
+     var country = document.getElementById("countrySelect").value;
+    
     // 2. Check karna ke user ne data bhara ya nahi
     if (name === "" || age === "") {
         alert("Please fill your Name and Age first!");
@@ -86,11 +87,12 @@ function sendToWhatsApp(phoneNumber) {
     }
 
     // 3. Message banana (Yahan %0A ka use sahi hai)
-    var message = "Assalamu Alaikum, I want to join your Al-Noor Quran Academy. " +
-                  "Student Name: " + name + "%0A" +
-                  "Age: " + age + "%0A" +
-                  "Selected Course: " + course;
-
+    var message = "Assalamu Alaikum, I want to join your Al-Noor Quran Academy. " + 
+              "Student Name: " + name + " - " + 
+              "Age: " + age + " - " + 
+              "Country: " + country + " - " + 
+              "Selected Course: " + course;
+    
     // 4. WhatsApp link banana (Yahan se fix hoga)
     var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
 
@@ -167,6 +169,27 @@ function sendToWhatsApp(phoneNumber) {
         <p><strong>Ustadha Fatima:</strong> Certified Quran teacher with specialization in Noorani Qaida for kids and beginners.</p>
     </div>
    </div>
+         <!-- Review Form Section -->
+<div style="padding: 30px; background-color: #f4f4f4; border-radius: 10px; margin-top: 20px; border: 1px solid #ddd;">
+    <h2 style="color: #0d231d; text-align: center;">Give Your Feedback</h2>
+    <input type="text" id="reviewerName" placeholder="Your Name" style="width: 95%; padding: 10px; margin-bottom: 10px;">
+    <textarea id="reviewText" placeholder="Write your review here..." style="width: 95%; padding: 10px; margin-bottom: 10px; height: 80px;"></textarea>
+    <button onclick="sendReviewToWhatsApp()" style="background-color: #25d366; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Submit Review on WhatsApp</button>
+</div>
+
+<script>
+function sendReviewToWhatsApp() {
+    var name = document.getElementById("reviewerName").value;
+    var review = document.getElementById("reviewText").value;
+    if (name === "" || review === "") {
+        alert("Please fill both fields!");
+        return;
+    }
+    var message = "New Review Received! %0A Name: " + name + "%0A Review: " + review;
+    var whatsappUrl = "https://wa.me/923116876314?text=" + message; // Apna number yahan likhein
+    window.location.href = whatsappUrl;
+}
+</script>
                     
 
                     <h2 style="color: #0d231d;">Our Courses</h2>
@@ -196,11 +219,7 @@ function sendToWhatsApp(phoneNumber) {
         <h3 style="color: #0d231d; margin-top: 15px;">Virtual Classroom</h3>
         <p style="color: #666; font-size: 14px;">A secure, interactive environment where students and teachers connect.</p>
     </div>
-        <div style="padding: 30px; background-color: #fffaf0; border-radius: 10px; margin-top: 20px; border: 1px solid #dfb15b;">
-    <h2 style="color: #0d231d; text-align: center;">What Our Parents Say</h2>
-    <p style="font-style: italic; color: #555; text-align: center;">"My kids are learning Quran with proper Tajweed. The teachers are very patient and professional. Highly recommended!" - <em>Parent from UK</em></p>
-    <p style="font-style: italic; color: #555; text-align: center; margin-top: 10px;">"The best online Quran academy. Flexible timings and very helpful coordinators." - <em>Parent from Pakistan</em></p>
-        </div>
+        
         
 
     <div style="min-width: 280px; max-width: 350px; background-color: #f9f9f9; padding: 20px; border-radius: 10px;">
